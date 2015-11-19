@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <memory.h>
-int num[2^32];
+int hash[2^32];
 int isHappyNumber(int n);
 int main()
 {
@@ -16,7 +16,7 @@ int main()
 int isHappyNumber(int n)
 {
     int result = 0;
-    memset(num, 0, sizeof(num));
+    memset(hash, 0, sizeof(hash));
     while(1)
     {
         if(n==1) return 1;
@@ -25,9 +25,9 @@ int isHappyNumber(int n)
             result += (n%10)*(n%10);
             n = n/10;
         }
-        if(num[result] == 0)
+        if(hash[result] == 0)
         {
-            num[result] = 1;
+            hash[result] = 1;
             n = result;
             result = 0;
             continue;
