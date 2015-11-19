@@ -1,24 +1,25 @@
 #include <stdio.h>
+#include <memory.h>
 int num[2^32];
-boolean isHappyNumber(int n);
+int isHappyNumber(int n);
 int main()
 {
     int n;
     while(scanf("%d",&n))
     {
          if(isHappyNumber(n))
-         printf("isTrue\d");
+         printf("isTrue\n");
          else
          printf("isFalse\n");
     }
 }
-boolean isHappyNumber(int n)
+int isHappyNumber(int n)
 {
     int result = 0;
     memset(num, 0, sizeof(num));
     while(1)
     {
-        if(n==1) return true;
+        if(n==1) return 1;
         while(n)
         {
             result += (n%10)*(n%10);
@@ -32,7 +33,7 @@ boolean isHappyNumber(int n)
             continue;
         }
         else
-            return false;
+            return 0;
     }
 
 }
